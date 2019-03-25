@@ -1,0 +1,26 @@
+@startuml
+
+title Faillist development process (DO-178B DAL A norm respected)
+
+"Analyse & feasibility" #cyan -> Requirements #cyan
+
+Requirements #cyan -> "Architectural Design" #cyan
+
+"Architectural Design" #cyan -> Coding #yellow
+
+Coding #yellow -> "Unit Testing" #green
+
+"Unit Testing" #green -> "Integration testing" #green
+
+"Integration testing" #green-> "Validation testing" #green
+
+"Validation testing" #green -> "Acceptance / Certification" #red
+
+legend
+| Color | Developer |
+|<back:yellow>            </back>| Jonathan Bruel |
+|<back:green>            </back>| Arthur Grosso |
+|<back:red>            </back>| Pierre Jallut |
+|<back:cyan>            </back>| Jonathan, Arthur & Pierre |
+endlegend
+@enduml

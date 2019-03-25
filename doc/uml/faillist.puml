@@ -1,0 +1,34 @@
+@startuml
+
+actor User
+
+User -> Application : Log me this raised error.
+
+Application -> FileReader : Open and read file.
+alt FileReader finish with success.
+    FileReader -> Application : File opened and read.
+
+    Application -> FileParser : Parse, interpret and stock data.
+    alt FileParser finish with success.
+        FileParser -> Application : File parsed with success.
+
+        Application -> Logger : Log stocked information into output file.
+        alt Logger finish with success.
+            Logger -> Application : Raised error log with success.
+            Application -> User : Raised error has been logged with success.
+        else Logger finish with failure.
+            Logger -> Application : Fail to log into the output file.
+            Application -> User : Raised error can not be logged.
+        end
+
+    else FileParser finish with failure.
+        FileParser -> Application : Fail to parse the file.
+        Application -> User : Raised error can not be logged.
+    end
+
+else FileRead finish with failure.
+    FileReader -> Application : Fail to opened and read the file.
+    Application -> User : Raised error can not be logged.
+end
+
+@enduml

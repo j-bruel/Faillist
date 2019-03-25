@@ -1,0 +1,15 @@
+{
+  Id_plane: "VP-A",
+  Type_plane: 0x017C,
+  Nb_failures: 1,
+  failures: [
+    {
+      Id_failure: 0x1000,
+      Date: 1547214213,
+      Id_component: 0x2002,
+      Level_criticity: 2,
+      Comment_failure_size: 100,
+      Comment_failure: "Serious error ..."
+    }
+  ]
+}
